@@ -1,0 +1,189 @@
+/*
+ *
+ * Xilinx, Inc.
+ * XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" AS A 
+ * COURTESY TO YOU.  BY PROVIDING THIS DESIGN, CODE, OR INFORMATION AS
+ * ONE POSSIBLE   IMPLEMENTATION OF THIS FEATURE, APPLICATION OR 
+ * STANDARD, XILINX IS MAKING NO REPRESENTATION THAT THIS IMPLEMENTATION 
+ * IS FREE FROM ANY CLAIMS OF INFRINGEMENT, AND YOU ARE RESPONSIBLE 
+ * FOR OBTAINING ANY RIGHTS YOU MAY REQUIRE FOR YOUR IMPLEMENTATION
+ * XILINX EXPRESSLY DISCLAIMS ANY WARRANTY WHATSOEVER WITH RESPECT TO 
+ * THE ADEQUACY OF THE IMPLEMENTATION, INCLUDING BUT NOT LIMITED TO 
+ * ANY WARRANTIES OR REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE 
+ * FROM CLAIMS OF INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY 
+ * AND FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
+/*
+ * 
+ *
+ * This file is a generated sample test application.
+ *
+ * This application is intended to test and/or illustrate some 
+ * functionality of your system.  The contents of this file may
+ * vary depending on the IP in your system and may use existing
+ * IP driver functions.  These drivers will be generated in your
+ * SDK application project when you run the "Generate Libraries" menu item.
+ *
+ */
+
+
+#include "stdio.h"
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xbram.h"
+#include "bram_header.h"
+#include "xbasic_types.h"
+#include "xgpio.h"
+#include "gpio_header.h"
+#include "xuartlite_l.h"
+#include "xstatus.h"
+
+
+#define XPAR_XPS_UARTLITE_0_BASEADDR 0x84000000
+
+
+
+int getNumber (){
+
+	Xuint8 byte;
+	Xuint8 uartBuffer[16];
+	Xboolean validNumber;
+	int digitIndex;
+	int digit, number, sign;
+	int c;
+
+	while(1){
+		byte = 0x00;
+		digit = 0;
+		digitIndex = 0;
+		number = 0;
+		validNumber = XTRUE;
+
+		//get bytes from uart until RETURN is entered
+		//xil_printf("Va a entrar while : %d. \r \n ",byte);
+		//byte = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+		while(byte != 0x0d && byte != 0x0A && byte != 32){
+			//xil_printf("Entra while : %d.",byte);
+			byte = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+			uartBuffer[digitIndex] = byte;
+
+			//XUartLite_SendByte(XPAR_XPS_UARTLITE_0_BASEADDR,byte);
+			digitIndex++;
+		}
+
+		//xil_printf("Sale while.\n");
+		//calculate number from string of digits
+
+		for(c = 0; c < (digitIndex - 1); c++){
+			if(c == 0){
+				//check if first byte is a "-"
+				if(uartBuffer[c] == 0x2D){
+					sign = -1;
+					digit = 0;
+				}
+				//check if first byte is a digit
+				else if((uartBuffer[c] >> 4) == 0x03){
+					sign = 1;
+					digit = (uartBuffer[c] & 0x0F);
+				}
+				else
+					validNumber = XFALSE;
+			}
+			else{
+				//check byte is a digit
+				if((uartBuffer[c] >> 4) == 0x03){
+					digit = (uartBuffer[c] & 0x0F);
+				}
+				else
+					validNumber = XFALSE;
+			}
+			number = (number * 10) + digit;
+		}
+		number *= sign;
+		if(validNumber == XTRUE){
+			return number;
+		}
+		xil_printf("This is not a valid number.\n\r");
+	}
+}
+
+
+
+
+int operando,operando2;
+char key,key2;
+int main()
+{
+	int Status;
+	   Xil_ICacheEnable();
+	   Xil_DCacheEnable();
+	   XGpio leds,switches;
+	   Status = XGpio_Initialize(&leds, 1);
+	   if (Status != XST_SUCCESS) {
+	   return XST_FAILURE;
+	   }
+	   Status = XGpio_Initialize(&switches, 0);
+	   if (Status != XST_SUCCESS) {
+	   return XST_FAILURE;
+	   }
+	   XGpio_SetDataDirection(&leds, 1, 0x0);
+	   XGpio_SetDataDirection(&switches, 1, 0xFF);
+
+	// escribe un mensaje en la pantalla del hyperterminal
+
+	//xil_printf("Introduce una letra\n");
+
+	// lee una letra de teclado
+	//key = getchar();
+	//xil_printf("continua \r \n");
+	//key = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+
+
+	//XUartLite_SendByte(XPAR_XPS_UARTLITE_0_BASEADDR,key);
+
+
+
+
+
+
+
+	//Primer numero
+	xil_printf("Introduce un numero en los switches pulsa enter \r \n");
+	key = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+	operando = XGpio_DiscreteRead(&switches, 1);
+	xil_printf("operando 1: %d \n", operando);
+	XGpio_DiscreteWrite(&leds, 1, operando);
+
+
+
+	//Segundo numero
+	xil_printf("Introduce un segundo numero en los switches y pulsa enter \r \n");
+	key = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+	//key = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+	operando2 = XGpio_DiscreteRead(&switches, 1);
+	xil_printf("operando 2: %d \n \r", operando2);
+	XGpio_DiscreteWrite(&leds, 1, operando2);
+
+	//Suma y o resta muestra del resultado
+	xil_printf("Resta (-) o Suma cualquier otra cosa\n");
+	key = XUartLite_RecvByte(XPAR_XPS_UARTLITE_0_BASEADDR);
+	if(key == '-'){
+		operando -= operando2;
+	}
+	else{
+		operando += operando2;
+	}
+	XGpio_DiscreteWrite(&leds, 1, operando);
+	xil_printf("El resultado es %d \n", operando);
+	xil_printf("-- Exiting main() --\r\n");
+
+
+   Xil_DCacheDisable();
+   Xil_ICacheDisable();
+   return 0;
+
+
+}
+
+

@@ -1,0 +1,10 @@
+-batch 
+-create my_lcd 
+-ver 1.00.a 
+-dir "C:\Users\Blanzas\Desktop\PR6-entrega" 
+-lang vhdl 
+-bus plbv46 s 
+-wfifo 1 512 
+-xps 
+-ise 
+-driver 

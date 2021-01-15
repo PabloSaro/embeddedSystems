@@ -1,0 +1,34 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Thu Jan 30 02:28:54 2020
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "RX" LOCATE = SITE "G5" LEVEL 1;
+COMP "TX" LOCATE = SITE "J2" LEVEL 1;
+COMP "red" LOCATE = SITE "E15" LEVEL 1;
+COMP "Clk_pin" LOCATE = SITE "P8" LEVEL 1;
+COMP "R<0>" LOCATE = SITE "P1" LEVEL 1;
+COMP "R<1>" LOCATE = SITE "M4" LEVEL 1;
+COMP "R<2>" LOCATE = SITE "H14" LEVEL 1;
+COMP "R<3>" LOCATE = SITE "J14" LEVEL 1;
+COMP "blue" LOCATE = SITE "J16" LEVEL 1;
+COMP "lcd_col_clk" LOCATE = SITE "G2" LEVEL 1;
+COMP "lcd_row_clk" LOCATE = SITE "J1" LEVEL 1;
+COMP "lcd_reset" LOCATE = SITE "H1" LEVEL 1;
+COMP "S_pin<0>" LOCATE = SITE "G1" LEVEL 1;
+COMP "S_pin<1>" LOCATE = SITE "G3" LEVEL 1;
+COMP "S_pin<2>" LOCATE = SITE "G4" LEVEL 1;
+COMP "S_pin<3>" LOCATE = SITE "F2" LEVEL 1;
+COMP "green" LOCATE = SITE "D16" LEVEL 1;
+COMP "rst_plb" LOCATE = SITE "K4" LEVEL 1;
+COMP "lcd_row_serial" LOCATE = SITE "P12" LEVEL 1;
+COMP "lcd_reset2" LOCATE = SITE "K15" LEVEL 1;
+COMP "lcd_col_serial" LOCATE = SITE "H3" LEVEL 1;
+COMP "lcd_data_out<3>" LOCATE = SITE "K16" LEVEL 1;
+COMP "lcd_data_out<4>" LOCATE = SITE "F15" LEVEL 1;
+COMP "lcd_data_out<5>" LOCATE = SITE "E2" LEVEL 1;
+COMP "lcd_data_out<6>" LOCATE = SITE "E1" LEVEL 1;
+COMP "lcd_data_out<7>" LOCATE = SITE "F3" LEVEL 1;
+NET "Clk_pin_BUFGP/IBUFG" BEL "Clk_pin_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

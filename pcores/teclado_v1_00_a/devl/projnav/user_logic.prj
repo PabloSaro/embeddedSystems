@@ -1,0 +1,2 @@
+vhdl work "../../hdl/vhdl/teclaDetect.vhd"
+vhdl teclado_v1_00_a "../../hdl/vhdl/user_logic.vhd"

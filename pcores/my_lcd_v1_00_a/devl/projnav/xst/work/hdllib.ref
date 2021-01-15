@@ -1,0 +1,4 @@
+EN lcd_controller NULL C:/Users/Blanzas/Desktop/PR6entrega/pcores/my_lcd_v1_00_a/hdl/vhdl/lcd_controller.vhd sub00/vhpl00 1580347598
+EN bannerdesp NULL C:/Users/Blanzas/Desktop/PR6entrega/pcores/my_lcd_v1_00_a/hdl/vhdl/bannerDesp.vhd sub00/vhpl02 1580347600
+AR lcd_controller controller C:/Users/Blanzas/Desktop/PR6entrega/pcores/my_lcd_v1_00_a/hdl/vhdl/lcd_controller.vhd sub00/vhpl01 1580347599
+AR bannerdesp banner_arch C:/Users/Blanzas/Desktop/PR6entrega/pcores/my_lcd_v1_00_a/hdl/vhdl/bannerDesp.vhd sub00/vhpl03 1580347601

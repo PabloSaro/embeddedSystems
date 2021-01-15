@@ -1,0 +1,526 @@
+Release 14.1 - xst P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: user_logic.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "user_logic.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "user_logic"
+Output Format                      : NGC
+Target Device                      : xc3s1000-5-ft256
+
+---- Source Options
+Top Module Name                    : user_logic
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Blanzas/Desktop/PR5_SE/pcores/teclado_v1_00_a/hdl/vhdl/teclaDetect.vhd" in Library work.
+Architecture behavioral of Entity tecladetect is up to date.
+Compiling vhdl file "C:/Users/Blanzas/Desktop/PR5_SE/pcores/teclado_v1_00_a/hdl/vhdl/user_logic.vhd" in Library teclado_v1_00_a.
+Architecture imp of Entity user_logic is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <user_logic> in library <teclado_v1_00_a> (architecture <imp>) with generics.
+	C_NUM_REG = 1
+	C_SLV_DWIDTH = 32
+
+Analyzing hierarchy for entity <teclaDetect> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <user_logic> in library <teclado_v1_00_a> (Architecture <imp>).
+	C_NUM_REG = 1
+	C_SLV_DWIDTH = 32
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+Entity <user_logic> analyzed. Unit <user_logic> generated.
+
+Analyzing Entity <teclaDetect> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/Blanzas/Desktop/PR5_SE/pcores/teclado_v1_00_a/hdl/vhdl/teclaDetect.vhd" line 107: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <state>
+Entity <teclaDetect> analyzed. Unit <teclaDetect> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <teclaDetect>.
+    Related source file is "C:/Users/Blanzas/Desktop/PR5_SE/pcores/teclado_v1_00_a/hdl/vhdl/teclaDetect.vhd".
+WARNING:Xst:1780 - Signal <R4sync> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 16                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 12                                             |
+    | Clock              | reloj                     (rising_edge)        |
+    | Reset              | reset                     (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | waitingpression                                |
+    | Power Up State     | waitingpression                                |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <aux1>.
+    Found 20-bit up counter for signal <count>.
+    Found 1-bit register for signal <ldCode2>.
+    Found 4-bit register for signal <regcode>.
+    Found 1-bit register for signal <xSync>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   7 D-type flip-flop(s).
+Unit <teclaDetect> synthesized.
+
+
+Synthesizing Unit <user_logic>.
+    Related source file is "C:/Users/Blanzas/Desktop/PR5_SE/pcores/teclado_v1_00_a/hdl/vhdl/user_logic.vhd".
+    Found 4-bit up counter for signal <count>.
+    Found 1-bit register for signal <reloj12>.
+    Found 32-bit register for signal <slv_reg0>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  33 D-type flip-flop(s).
+Unit <user_logic> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 20-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 37
+ 1-bit register                                        : 36
+ 4-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <TeclaDetecInst/state/FSM> on signal <state[1:8]> with one-hot encoding.
+----------------------------------
+ State                | Encoding
+----------------------------------
+ waitingpression      | 00000001
+ pressiondebouncing   | 00000010
+ scancol1             | 00000100
+ scancol2             | 00001000
+ scancol3             | 00100000
+ scancol4             | 01000000
+ waitingdepression    | 00010000
+ depressiondebouncing | 10000000
+----------------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Counters                                             : 2
+ 20-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 40
+ Flip-Flops                                            : 40
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <user_logic> ...
+
+Optimizing unit <teclaDetect> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block user_logic, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : user_logic.ngr
+Top Level Output File Name         : user_logic
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 83
+
+Cell Usage :
+# BELS                             : 158
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 45
+#      LUT2_L                      : 1
+#      LUT3                        : 17
+#      LUT4                        : 42
+#      LUT4_D                      : 3
+#      LUT4_L                      : 3
+#      MUXCY                       : 24
+#      VCC                         : 1
+#      XORCY                       : 20
+# FlipFlops/Latches                : 72
+#      FDC                         : 12
+#      FDCE                        : 17
+#      FDP                         : 3
+#      FDPE                        : 8
+#      FDRE                        : 32
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 82
+#      IBUF                        : 43
+#      OBUF                        : 39
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-5 
+
+ Number of Slices:                       61  out of   7680     0%  
+ Number of Slice Flip Flops:             44  out of  15360     0%  
+ Number of 4 input LUTs:                112  out of  15360     0%  
+ Number of IOs:                          83
+ Number of bonded IOBs:                  83  out of    173    47%  
+    IOB Flip Flops:                      28
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Bus2IP_Clk                         | BUFGP                  | 37    |
+reloj121                           | BUFG                   | 35    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+Bus2IP_Reset                       | IBUF                   | 40    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 6.134ns (Maximum Frequency: 163.038MHz)
+   Minimum input arrival time before clock: 5.481ns
+   Maximum output required time after clock: 8.027ns
+   Maximum combinational path delay: 8.659ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Bus2IP_Clk'
+  Clock period: 3.388ns (frequency: 295.186MHz)
+  Total number of paths / destination ports: 20 / 6
+-------------------------------------------------------------------------
+Delay:               3.388ns (Levels of Logic = 1)
+  Source:            count_0 (FF)
+  Destination:       reloj12 (FF)
+  Source Clock:      Bus2IP_Clk rising
+  Destination Clock: Bus2IP_Clk rising
+
+  Data Path: count_0 to reloj12
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              5   0.626   1.078  count_0 (count_0)
+     LUT4:I0->O            1   0.479   0.681  count_cmp_eq00001 (count_cmp_eq0000)
+     FDCE:CE                   0.524          reloj12
+    ----------------------------------------
+    Total                      3.388ns (1.629ns logic, 1.759ns route)
+                                       (48.1% logic, 51.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'reloj121'
+  Clock period: 6.134ns (frequency: 163.038MHz)
+  Total number of paths / destination ports: 1533 / 58
+-------------------------------------------------------------------------
+Delay:               6.134ns (Levels of Logic = 7)
+  Source:            TeclaDetecInst/count_7 (FF)
+  Destination:       TeclaDetecInst/count_19 (FF)
+  Source Clock:      reloj121 rising
+  Destination Clock: reloj121 rising
+
+  Data Path: TeclaDetecInst/count_7 to TeclaDetecInst/count_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.626   1.040  TeclaDetecInst/count_7 (TeclaDetecInst/count_7)
+     LUT4:I0->O            1   0.479   0.000  TeclaDetecInst/timerEnd_cmp_eq0000_wg_lut<0> (TeclaDetecInst/timerEnd_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.435   0.000  TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<0> (TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<1> (TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<2> (TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<3> (TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           5   0.265   0.806  TeclaDetecInst/timerEnd_cmp_eq0000_wg_cy<4> (TeclaDetecInst/timerEnd)
+     LUT4:I3->O           20   0.479   1.313  TeclaDetecInst/count_not00011 (TeclaDetecInst/count_not0001)
+     FDCE:CE                   0.524          TeclaDetecInst/count_1
+    ----------------------------------------
+    Total                      6.134ns (2.974ns logic, 3.160ns route)
+                                       (48.5% logic, 51.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Bus2IP_Clk'
+  Total number of paths / destination ports: 132 / 96
+-------------------------------------------------------------------------
+Offset:              3.772ns (Levels of Logic = 2)
+  Source:            Bus2IP_WrCE<0> (PAD)
+  Destination:       slv_reg0_9 (FF)
+  Destination Clock: Bus2IP_Clk rising
+
+  Data Path: Bus2IP_WrCE<0> to slv_reg0_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            10   0.715   1.134  Bus2IP_WrCE_0_IBUF (IP2Bus_WrAck_OBUF)
+     LUT2:I1->O            8   0.479   0.921  slv_reg0_9_not00011 (slv_reg0_9_not0001)
+     FDRE:CE                   0.524          slv_reg0_9
+    ----------------------------------------
+    Total                      3.772ns (1.718ns logic, 2.054ns route)
+                                       (45.5% logic, 54.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'reloj121'
+  Total number of paths / destination ports: 73 / 16
+-------------------------------------------------------------------------
+Offset:              5.481ns (Levels of Logic = 4)
+  Source:            R<1> (PAD)
+  Destination:       TeclaDetecInst/regcode_3 (FF)
+  Destination Clock: reloj121 rising
+
+  Data Path: R<1> to TeclaDetecInst/regcode_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             7   0.715   1.201  R_1_IBUF (R_1_IBUF)
+     LUT2:I0->O            1   0.479   0.976  TeclaDetecInst/xCode<3>4 (TeclaDetecInst/xCode<3>4)
+     LUT4:I0->O            1   0.479   0.976  TeclaDetecInst/xCode<3>10 (TeclaDetecInst/xCode<3>10)
+     LUT2:I0->O            1   0.479   0.000  TeclaDetecInst/xCode<3>21 (TeclaDetecInst/xCode<3>)
+     FDCE:D                    0.176          TeclaDetecInst/regcode_3
+    ----------------------------------------
+    Total                      5.481ns (2.328ns logic, 3.153ns route)
+                                       (42.5% logic, 57.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'reloj121'
+  Total number of paths / destination ports: 12 / 4
+-------------------------------------------------------------------------
+Offset:              8.027ns (Levels of Logic = 2)
+  Source:            TeclaDetecInst/state_FSM_FFd3 (FF)
+  Destination:       S<2> (PAD)
+  Source Clock:      reloj121 rising
+
+  Data Path: TeclaDetecInst/state_FSM_FFd3 to S<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             11   0.626   1.267  TeclaDetecInst/state_FSM_FFd3 (TeclaDetecInst/state_FSM_FFd3)
+     LUT3:I0->O            2   0.479   0.745  TeclaDetecInst/state_FSM_Out91 (S_2_OBUF)
+     OBUF:I->O                 4.909          S_2_OBUF (S<2>)
+    ----------------------------------------
+    Total                      8.027ns (6.014ns logic, 2.013ns route)
+                                       (74.9% logic, 25.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Bus2IP_Clk'
+  Total number of paths / destination ports: 32 / 32
+-------------------------------------------------------------------------
+Offset:              7.546ns (Levels of Logic = 2)
+  Source:            slv_reg0_0 (FF)
+  Destination:       IP2Bus_Data<0> (PAD)
+  Source Clock:      Bus2IP_Clk rising
+
+  Data Path: slv_reg0_0 to IP2Bus_Data<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.626   0.851  slv_reg0_0 (slv_reg0_0)
+     LUT2:I1->O            1   0.479   0.681  IP2Bus_Data<0>1 (IP2Bus_Data_0_OBUF)
+     OBUF:I->O                 4.909          IP2Bus_Data_0_OBUF (IP2Bus_Data<0>)
+    ----------------------------------------
+    Total                      7.546ns (6.014ns logic, 1.532ns route)
+                                       (79.7% logic, 20.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 34 / 34
+-------------------------------------------------------------------------
+Delay:               8.659ns (Levels of Logic = 3)
+  Source:            Bus2IP_RdCE<0> (PAD)
+  Destination:       IP2Bus_Data<0> (PAD)
+
+  Data Path: Bus2IP_RdCE<0> to IP2Bus_Data<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            33   0.715   1.875  Bus2IP_RdCE_0_IBUF (IP2Bus_RdAck_OBUF)
+     LUT2:I0->O            1   0.479   0.681  IP2Bus_Data<9>1 (IP2Bus_Data_9_OBUF)
+     OBUF:I->O                 4.909          IP2Bus_Data_9_OBUF (IP2Bus_Data<9>)
+    ----------------------------------------
+    Total                      8.659ns (6.103ns logic, 2.556ns route)
+                                       (70.5% logic, 29.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.75 secs
+ 
+--> 
+
+Total memory usage is 4508228 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

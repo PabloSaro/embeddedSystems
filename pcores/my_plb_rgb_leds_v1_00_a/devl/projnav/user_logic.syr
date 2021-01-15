@@ -1,0 +1,427 @@
+Release 14.1 - xst P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: user_logic.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "user_logic.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "user_logic"
+Output Format                      : NGC
+Target Device                      : xc3s1000-5-ft256
+
+---- Source Options
+Top Module Name                    : user_logic
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx/14.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd" in Library proc_common_v3_00_a.
+Package <proc_common_pkg> compiled.
+Package body <proc_common_pkg> compiled.
+Compiling vhdl file "C:/Users/Blanzas/Desktop/PR5_SE/pcores/my_plb_rgb_leds_v1_00_a/hdl/vhdl/user_logic.vhd" in Library my_plb_rgb_leds_v1_00_a.
+Entity <user_logic> compiled.
+Entity <user_logic> (Architecture <IMP>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <user_logic> in library <my_plb_rgb_leds_v1_00_a> (architecture <IMP>) with generics.
+	C_NUM_REG = 3
+	C_SLV_DWIDTH = 32
+	n = 8
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <user_logic> in library <my_plb_rgb_leds_v1_00_a> (Architecture <IMP>).
+	C_NUM_REG = 3
+	C_SLV_DWIDTH = 32
+	n = 8
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+Entity <user_logic> analyzed. Unit <user_logic> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <user_logic>.
+    Related source file is "C:/Users/Blanzas/Desktop/PR5_SE/pcores/my_plb_rgb_leds_v1_00_a/hdl/vhdl/user_logic.vhd".
+    Found 8-bit up counter for signal <cnt_blue>.
+    Found 8-bit up counter for signal <cnt_green>.
+    Found 8-bit up counter for signal <cnt_red>.
+    Found 8-bit comparator less for signal <output_blue$cmp_lt0000> created at line 281.
+    Found 8-bit comparator less for signal <output_green$cmp_lt0000> created at line 283.
+    Found 8-bit comparator less for signal <output_red$cmp_lt0000> created at line 279.
+    Found 32-bit register for signal <slv_reg0>.
+    Found 32-bit register for signal <slv_reg1>.
+    Found 32-bit register for signal <slv_reg2>.
+    Summary:
+	inferred   3 Counter(s).
+	inferred  96 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+Unit <user_logic> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 8-bit up counter                                      : 3
+# Registers                                            : 96
+ 1-bit register                                        : 96
+# Comparators                                          : 3
+ 8-bit comparator less                                 : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 8-bit up counter                                      : 3
+# Registers                                            : 96
+ Flip-Flops                                            : 96
+# Comparators                                          : 3
+ 8-bit comparator less                                 : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <user_logic> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block user_logic, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 120
+ Flip-Flops                                            : 120
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : user_logic.ngr
+Top Level Output File Name         : user_logic
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 82
+
+Cell Usage :
+# BELS                             : 262
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 21
+#      LUT2                        : 24
+#      LUT3                        : 58
+#      LUT4                        : 44
+#      LUT4_D                      : 6
+#      MUXCY                       : 45
+#      MUXF5                       : 32
+#      VCC                         : 1
+#      XORCY                       : 24
+# FlipFlops/Latches                : 120
+#      FDC                         : 24
+#      FDRE                        : 96
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 81
+#      IBUF                        : 43
+#      OBUF                        : 38
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-5 
+
+ Number of Slices:                      128  out of   7680     1%  
+ Number of Slice Flip Flops:            120  out of  15360     0%  
+ Number of 4 input LUTs:                159  out of  15360     1%  
+ Number of IOs:                          82
+ Number of bonded IOBs:                  82  out of    173    47%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Bus2IP_Clk                         | BUFGP                  | 120   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+Bus2IP_Reset                       | IBUF                   | 24    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.064ns (Maximum Frequency: 197.461MHz)
+   Minimum input arrival time before clock: 3.928ns
+   Maximum output required time after clock: 9.953ns
+   Maximum combinational path delay: 9.129ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Bus2IP_Clk'
+  Clock period: 5.064ns (frequency: 197.461MHz)
+  Total number of paths / destination ports: 300 / 24
+-------------------------------------------------------------------------
+Delay:               5.064ns (Levels of Logic = 9)
+  Source:            cnt_blue_1 (FF)
+  Destination:       cnt_blue_7 (FF)
+  Source Clock:      Bus2IP_Clk rising
+  Destination Clock: Bus2IP_Clk rising
+
+  Data Path: cnt_blue_1 to cnt_blue_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.626   1.066  cnt_blue_1 (cnt_blue_1)
+     LUT1:I0->O            1   0.479   0.000  Mcount_cnt_blue_cy<1>_rt (Mcount_cnt_blue_cy<1>_rt)
+     MUXCY:S->O            1   0.435   0.000  Mcount_cnt_blue_cy<1> (Mcount_cnt_blue_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  Mcount_cnt_blue_cy<2> (Mcount_cnt_blue_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  Mcount_cnt_blue_cy<3> (Mcount_cnt_blue_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  Mcount_cnt_blue_cy<4> (Mcount_cnt_blue_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  Mcount_cnt_blue_cy<5> (Mcount_cnt_blue_cy<5>)
+     MUXCY:CI->O           0   0.056   0.000  Mcount_cnt_blue_cy<6> (Mcount_cnt_blue_cy<6>)
+     XORCY:CI->O           1   0.786   0.740  Mcount_cnt_blue_xor<7> (Result<7>)
+     LUT3:I2->O            1   0.479   0.000  Mcount_cnt_blue_eqn_71 (Mcount_cnt_blue_eqn_7)
+     FDC:D                     0.176          cnt_blue_7
+    ----------------------------------------
+    Total                      5.064ns (3.259ns logic, 1.806ns route)
+                                       (64.3% logic, 35.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Bus2IP_Clk'
+  Total number of paths / destination ports: 576 / 288
+-------------------------------------------------------------------------
+Offset:              3.928ns (Levels of Logic = 2)
+  Source:            Bus2IP_WrCE<0> (PAD)
+  Destination:       slv_reg0_9 (FF)
+  Destination Clock: Bus2IP_Clk rising
+
+  Data Path: Bus2IP_WrCE<0> to slv_reg0_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            13   0.715   1.289  Bus2IP_WrCE_0_IBUF (Bus2IP_WrCE_0_IBUF)
+     LUT4:I0->O            8   0.479   0.921  slv_reg0_9_not00011 (slv_reg0_9_not0001)
+     FDRE:CE                   0.524          slv_reg0_9
+    ----------------------------------------
+    Total                      3.928ns (1.718ns logic, 2.210ns route)
+                                       (43.7% logic, 56.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Bus2IP_Clk'
+  Total number of paths / destination ports: 168 / 35
+-------------------------------------------------------------------------
+Offset:              9.953ns (Levels of Logic = 11)
+  Source:            cnt_blue_0 (FF)
+  Destination:       blue (PAD)
+  Source Clock:      Bus2IP_Clk rising
+
+  Data Path: cnt_blue_0 to blue
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.626   1.066  cnt_blue_0 (cnt_blue_0)
+     LUT2:I0->O            1   0.479   0.000  Mcompar_output_blue_cmp_lt0000_lut<0> (Mcompar_output_blue_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.435   0.000  Mcompar_output_blue_cmp_lt0000_cy<0> (Mcompar_output_blue_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<1> (Mcompar_output_blue_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<2> (Mcompar_output_blue_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<3> (Mcompar_output_blue_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<4> (Mcompar_output_blue_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<5> (Mcompar_output_blue_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  Mcompar_output_blue_cmp_lt0000_cy<6> (Mcompar_output_blue_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.265   0.681  Mcompar_output_blue_cmp_lt0000_cy<7> (Mcompar_output_blue_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.479   0.681  Mcompar_output_blue_cmp_lt0000_cy<7>_inv_INV_0 (blue_OBUF)
+     OBUF:I->O                 4.909          blue_OBUF (blue)
+    ----------------------------------------
+    Total                      9.953ns (7.525ns logic, 2.428ns route)
+                                       (75.6% logic, 24.4% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 166 / 34
+-------------------------------------------------------------------------
+Delay:               9.129ns (Levels of Logic = 4)
+  Source:            Bus2IP_RdCE<0> (PAD)
+  Destination:       IP2Bus_Data<0> (PAD)
+
+  Data Path: Bus2IP_RdCE<0> to IP2Bus_Data<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            65   0.715   2.031  Bus2IP_RdCE_0_IBUF (Bus2IP_RdCE_0_IBUF)
+     LUT4:I0->O            1   0.479   0.000  IP2Bus_Data<9>_F (N99)
+     MUXF5:I0->O           1   0.314   0.681  IP2Bus_Data<9> (IP2Bus_Data_9_OBUF)
+     OBUF:I->O                 4.909          IP2Bus_Data_9_OBUF (IP2Bus_Data<9>)
+    ----------------------------------------
+    Total                      9.129ns (6.417ns logic, 2.712ns route)
+                                       (70.3% logic, 29.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.81 secs
+ 
+--> 
+
+Total memory usage is 4507844 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

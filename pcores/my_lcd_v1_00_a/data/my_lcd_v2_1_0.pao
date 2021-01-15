@@ -1,0 +1,14 @@
+##############################################################################
+## Filename:          C:/Users/Blanzas/Desktop/PR6-entrega/pcores/my_lcd_v1_00_a/data/my_lcd_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Tue Jan 28 23:24:35 2020 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib plbv46_slave_single_v1_01_a  all 
+lib wrpfifo_v5_01_a  all 
+lib my_lcd_v1_00_a user_logic vhdl
+lib my_lcd_v1_00_a my_lcd vhdl
+lib my_lcd_v1_00_a lcd_controller vhdl
+lib my_lcd_v1_00_a bannerDesp vhdl
+

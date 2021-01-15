@@ -1,0 +1,12 @@
+run
+-opt_level 2
+-opt_mode speed
+-ifmt mixed
+-ifn "U:\hlocal\PR5_SE\pcores\teclado_v1_00_a\devl\synthesis\teclado_xst.prj"
+-top teclado
+-p virtex6
+-ofn "U:\hlocal\PR5_SE\pcores\teclado_v1_00_a\devl\synthesis\teclado_xst.ngc"
+-iobuf NO
+-rtlview YES
+-hierarchy_separator /
+-work_lib teclado_v1_00_a

@@ -1,0 +1,11 @@
+##############################################################################
+## Filename:          U:/hlocal/PR5_SE/pcores/teclado_v1_00_a/data/teclado_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Mon Dec 16 17:00:42 2019 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib plbv46_slave_single_v1_01_a  all 
+lib teclado_v1_00_a teclado vhdl
+lib teclado_v1_00_a user_logic vhdl
+lib teclado_v1_00_a teclaDetect vhdl

@@ -1,0 +1,12 @@
+run
+-opt_level 2
+-opt_mode speed
+-ifmt mixed
+-ifn "C:\Users\Blanzas\Desktop\PR5_SE\pcores\my_plb_rgb_leds_v1_00_a\devl\synthesis\my_plb_rgb_leds_xst.prj"
+-top my_plb_rgb_leds
+-p virtex6
+-ofn "C:\Users\Blanzas\Desktop\PR5_SE\pcores\my_plb_rgb_leds_v1_00_a\devl\synthesis\my_plb_rgb_leds_xst.ngc"
+-iobuf NO
+-rtlview YES
+-hierarchy_separator /
+-work_lib my_plb_rgb_leds_v1_00_a

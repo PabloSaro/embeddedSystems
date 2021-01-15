@@ -1,0 +1,10 @@
+V3 4
+FL C:/Users/Blanzas/Desktop/PR5_SE/pcores/my_plb_rgb_leds_v1_00_a/hdl/vhdl/user_logic.vhd 2020/01/28.01:50:51 P.15xf
+EN my_plb_rgb_leds_v1_00_a/user_logic 1580172668 \
+      FL C:/Users/Blanzas/Desktop/PR5_SE/pcores/my_plb_rgb_leds_v1_00_a/hdl/vhdl/user_logic.vhd \
+      PB ieee/std_logic_1164 1335251622 PB ieee/std_logic_arith 1335251623 \
+      PB ieee/STD_LOGIC_UNSIGNED 1335251625 LB proc_common_v3_00_a \
+      PB proc_common_v3_00_a/proc_common_pkg 1580172667
+AR my_plb_rgb_leds_v1_00_a/user_logic/IMP 1580172669 \
+      FL C:/Users/Blanzas/Desktop/PR5_SE/pcores/my_plb_rgb_leds_v1_00_a/hdl/vhdl/user_logic.vhd \
+      EN my_plb_rgb_leds_v1_00_a/user_logic 1580172668

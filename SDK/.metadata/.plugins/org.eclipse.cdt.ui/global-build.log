@@ -1,0 +1,29 @@
+14:58:29 **** Auto Build of configuration Debug for project peripheral_tests_0 ****
+make all 
+make: Nothing to be done for 'all'.
+14:58:30 **** Auto Build of configuration Debug for project peripheral_tests_0 ****
+make all 
+make: Nothing to be done for 'all'.
+13:46:55 **** Auto Build of configuration Debug for project peripheral_tests_1 ****
+make all 
+make: Nothing to be done for 'all'.
+13:50:27 **** Auto Build of configuration Debug for project peripheral_tests_1 ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -I../../peripheral_tests_bsp_1/microblaze_0/include -mxl-pattern-compare -mcpu=v8.30.a -mno-xl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+../src/testperiph.c:32:10: fatal error: xparameters.h: No such file or directory
+ #include "xparameters.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:29: src/testperiph.o] Error 1
+13:51:36 **** Auto Build of configuration Debug for project peripheral_tests_1 ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -I../../peripheral_tests_bsp_1/microblaze_0/include -mxl-pattern-compare -mcpu=v8.30.a -mno-xl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+../src/testperiph.c:32:10: fatal error: xparameters.h: No such file or directory
+ #include "xparameters.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:29: src/testperiph.o] Error 1
